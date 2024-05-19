@@ -8,7 +8,7 @@ const { default: mongoose } = require("mongoose");
 
 router.get("/balance",authMiddleware,async(req,res)=>{
     const account = await Account.findOne({
-        to: req.userId,
+        userId:req.userId,
     });
     res.json({
         balance: account.balance,
@@ -16,7 +16,7 @@ router.get("/balance",authMiddleware,async(req,res)=>{
 })
 
 
-router.post("/deposit",authMiddleware,async(req,res)=>{
+router.post("/transfer",authMiddleware,async(req,res)=>{
     const session = await mongoose.startSession();
     session.startTransaction();
     const {amount,to} = req.body;

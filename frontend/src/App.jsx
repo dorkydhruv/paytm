@@ -4,7 +4,6 @@ import { Signin } from './pages/SignIn';
 import { Dashboard } from './pages/Dasboard';
 import {SendMoney} from './pages/SendMoney';
 function App() {
-
   return (
     <>
       <BrowserRouter >
